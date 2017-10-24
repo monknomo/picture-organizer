@@ -5,9 +5,6 @@ from shutil import  copyfileobj, copystat
 import exifread
 import arrow
 import click
-import hashlib
-import pprint
-
 
 def base36encode(number, alphabet='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
     """

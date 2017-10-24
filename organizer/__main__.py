@@ -1,6 +1,7 @@
 from move_files import move_files   
 from dedupe import md5_for_file, deduplicate_directory 
 import click
+import pprint
 
 @click.command()
 @click.argument('src', type=click.Path(exists=True))

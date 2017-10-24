@@ -1,6 +1,7 @@
 import os
 from itertools import product
 from os.path import join
+import hashlib
 
 def md5_for_file(f, block_size=2**20):
     """
@@ -37,6 +38,6 @@ def deduplicate_directory(target):
     for key in dupes.keys():
         for file, size in dupes[key][1:]:
             os.remove(file)
-        if 0 == size:
-            os.remove(dupes[key][0])
+            if 0 == size:
+                os.remove(dupes[key][0])
     return dupes
