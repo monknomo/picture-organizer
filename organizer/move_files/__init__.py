@@ -74,7 +74,6 @@ def get_dest_file(src_file):
         try:
             tags = exifread.process_file(f, details=False, stop_tag='Image DateTime', strict=True)
         except Exception:
-            print(src_file)
             return join('corrupted-exif-data', basename(src_file))
     if tags:
         try:

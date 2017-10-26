@@ -28,16 +28,14 @@ def deduplicate_directory(target):
     for w in dedupe_walk:
         src_files = product([w[0]], w[2])
         for file in src_files:
-            target = join(file[0], file[1])
+            target_f = join(file[0], file[1])
             hash = md5_for_file(join(file[0], file[1]))
             try:
-                dupes[hash].append((target, os.stat(target).st_size))
+                dupes[hash].append((target_f, os.stat(target_f).st_size))
             except KeyError:
                 dupes[hash] = []
-                dupes[hash].append((target, os.stat(target).st_size))    
+                dupes[hash].append((target_f, os.stat(target_f).st_size))    
     for key in dupes.keys():
         for file, size in dupes[key][1:]:
             os.remove(file)
-            if 0 == size:
-                os.remove(dupes[key][0])
     return dupes

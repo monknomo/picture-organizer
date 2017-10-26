@@ -54,11 +54,11 @@ def move_all(src, dest, dedupe, report):
             print("##########")
             print("NUMBER DUPLICATES REMOVED")
             print("##########")
-            print(str(num_duplicates))
+            print(str(num_duplicates-len(num_duplicates.keys()))
             print("##########")
             print("NUMBER DUPLICATES")
             print("##########")
-            print(str(num_duplicates + len(dupe_list.keys())))
+            print(str(num_duplicates))
             print("##########")
 
 if __name__ == '__main__':
